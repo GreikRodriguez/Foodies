@@ -6,13 +6,6 @@
 @import url(./layout/footer.css);
 
 
-.img-1 {
-    width: 18vw;
-    height: 12vw;
-    object-fit: cover;
-    object-position: 0 20%;
-}
-
 .card {
     height: 100%;
 }
