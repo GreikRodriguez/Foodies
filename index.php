@@ -6,7 +6,7 @@ $recetas = $database->query("SELECT * FROM db_recetas.Recetas order by likes DES
 
 
 for ($i = 0; $i < count($recetas); $i++) {
-    $recetas[$i]["imagen_url"] = "/imgs/huevo.jpg";
+    
 
     $id_receta = $recetas[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
@@ -21,6 +21,27 @@ for ($i = 0; $i < count($recetas); $i++) {
         $recetas[$i]["categorias"] = $categorias;
     } else {
         $recetas[$i]["categorias"] = [["categoria" => "Almuerzo X"]];
+    }
+}
+
+
+$recetasG = $database->query("SELECT * FROM db_recetas.Recetas;")->fetchAll();
+for ($i = 0; $i < count($recetasG); $i++) {
+   
+
+    $id_receta = $recetasG[$i]["id"];
+    $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
+
+    if (is_numeric($lista_id_categorias)) {
+
+        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
+        $recetasG[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
+    } else if (count($lista_id_categorias) > 0) {
+
+        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
+        $recetasG[$i]["categorias"] = $categorias;
+    } else {
+        $recetasG[$i]["categorias"] = [["categoria" => "Almuerzo X"]];
     }
 }
 
@@ -105,10 +126,47 @@ for ($i = 0; $i < count($recetas); $i++) {
 
             ?>
 
-
+            
         </div>
     </section>
     <!-- top recetas -->
+
+    <!-- recetas -->
+    <section>
+        <div class="h4 pb-2 mb-4 color-green ">
+            <h2 class="title-margin ps-5 pe-5">RECETAS DE COCINA</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5pr card-size">
+            <?php
+            for ($i = 0; $i < count($recetasG); $i++) {
+                echo "<div class='col-md'>
+                        <div class='card'>
+                            <a href=/receta.php?id='" . $recetasG[$i]["id"] . "'><img src='" . $recetasG[$i]["imagen_url"] . "' class='opacity-card card-img '
+                                    alt='salmon'></a>
+                            <div class='card-body color-card'>
+                                <h5 class='card-title color-w align-text'>" . $recetasG[$i]["nombre"] . "</h5>
+                                <div class='line br-use'></div>
+                                <div class=' elements-l'>
+                                    <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
+                                    <h4 class='color-w text-likes'>" . $recetasG[$i]["likes"] . "</h4>";
+
+
+                echo "<div class='btn-type '>
+                            <button type='button' class='btn btn-danger fw-bold'>" . $recetasG[$i]["categorias"][0]["categoria"] . "</button>
+                         </div>";
+
+
+                echo            "</div>
+                            </div>
+                        </div>
+                    </div>";
+            }
+            ?>
+        </div>
+        </section>
+    <!-- recetas -->
+    
 
 
     <?php include "footer.php" ?>
