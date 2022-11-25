@@ -6,7 +6,7 @@
     <!--  Menu navigation -->
     <nav id="navbar-main" class="navbar top-nav mobile-offcanvas navbar-expand-lg mx-auto color-light total-size">
       <div class="d-flex justify-content-between align-items-center ">
-        <a href="index.html"><img src="/imgs/Logo.png" class="size position-relative ms-5 mobile-logo" alt="Graphic identifier"></a>
+        <a href="index.html"><img src="/imgs/logo.png" class="size position-relative ms-5 mobile-logo" alt="Graphic identifier"></a>
         <div class="offcanvas-header"><button id="btn-close" class="btn btn-light float-end me-5">X</button></div>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
