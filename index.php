@@ -6,7 +6,7 @@ $recetas = $database->query("SELECT * FROM db_recetas.Recetas order by likes DES
 
 
 for ($i = 0; $i < count($recetas); $i++) {
-    
+
 
 
     $id_receta = $recetas[$i]["id"];
@@ -26,9 +26,11 @@ for ($i = 0; $i < count($recetas); $i++) {
 }
 
 
-$recetasG = $database->query("SELECT * FROM db_recetas.Recetas;")->fetchAll();
+$recetasG = $database->select("Recetas", "*");
+
+
 for ($i = 0; $i < count($recetasG); $i++) {
-   
+
 
     $id_receta = $recetasG[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
@@ -104,7 +106,7 @@ for ($i = 0; $i < count($recetasG); $i++) {
             for ($i = 0; $i < count($recetas); $i++) {
                 echo "<div class='col-md'>
                         <div class='card'>
-                            <a href=/receta.php?id='" . $recetas[$i]["id"] . "'><img src='" . $recetas[$i]["imagen_url"] . "' class='opacity-card card-img-top img-1'
+                            <a href=/receta.php?id=" . $recetas[$i]["id"] . "><img src='" . $recetas[$i]["imagen_url"] . "' class='opacity-card card-img-top img-1'
                                     alt='salmon'></a>
                             <div class='card-body color-card'>
                                 <h5 class='card-title color-w align-text'>" . $recetas[$i]["nombre"] . "</h5>
@@ -127,7 +129,7 @@ for ($i = 0; $i < count($recetasG); $i++) {
 
             ?>
 
-            
+
         </div>
     </section>
     <!-- top recetas -->
@@ -165,9 +167,9 @@ for ($i = 0; $i < count($recetasG); $i++) {
             }
             ?>
         </div>
-        </section>
+    </section>
     <!-- recetas -->
-    
+
 
 
     <?php include "footer.php" ?>
