@@ -6,7 +6,6 @@ $recetas = $database->query("SELECT * FROM db_recetas.Recetas order by likes DES
 
 
 for ($i = 0; $i < count($recetas); $i++) {
-    $recetas[$i]["imagen_url"] = "/imgs/huevo.jpg";
 
     $id_receta = $recetas[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
