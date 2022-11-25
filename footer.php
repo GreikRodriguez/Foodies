@@ -2,7 +2,7 @@
  <section class="top-nav-v2 container-fluid footer title-margin">
      <div class="row footer-about title-margin">
          <div class="col-md footer-logo">
-             <img src="/foodiesv2/img/logo.png" alt="logo" class="footer-logo-img">
+             <img src="/imgs/logo.png" alt="logo" class="footer-logo-img">
          </div>
          <div class="col-md footer-info">
              <h3 class="info-title color-w top-contact ms-5">¿Quienes somos?</h3>
