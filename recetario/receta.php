@@ -127,6 +127,8 @@
      </header>
     <!-- nav menu -->
 
+
+    
      <!-- cart info -->
 <div class="container-fluid">
     <div class="h4 pb-2 mb-4 color-green">
@@ -178,6 +180,8 @@
   </div>  
   <!-- cart info -->
     
+
+
   <section>
     <div class="h4 pb-2 mb-4 color-green ">
       <h2 class="title-margin ps-5 pe-5">RECOMENDACIONES:</h2>

@@ -2,24 +2,24 @@
 include "DB.php";
 
 $idReceta = $_GET["id"];
-$recetas = $database->query("SELECT * FROM db_recetas.Recetas;")->fetchAll();
+$info = $database->query("SELECT * FROM db_recetas.Recetas WHERE id=42;")->fetchAll();
 
 
-for ($i = 0; $i < count($recetas); $i++) {
+for ($i = 0; $i < count($info); $i++) {
 
 
 
-    $id_receta = $recetas[$i]["id"];
+    $id_receta = $info[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
 
     if (is_numeric($lista_id_categorias)) {
 
         $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetas[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
+        $info[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
     } else if (count($lista_id_categorias) > 0) {
 
         $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetas[$i]["categorias"] = $categorias;
+        $info[$i]["categorias"] = $categorias;
     }
 }
 
@@ -55,43 +55,58 @@ for ($i = 0; $i < count($recetas); $i++) {
     <?php include "header.php" ?>
 
     <section>
-        <div class="h4 pb-2 mb-4 color-green ">
-            <h2 class="title-margin ps-5 pe-5">TOP 10 RECETAS</h2>
+    <div class="container-fluid">
+        <div class="h4 pb-2 mb-4 color-green">
+            <h2 class="title-margin ps-5 pe-5">RECETA</h2>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
+        <div class="row g-1 ps-5 pe-5">
             <?php
 
 
 
-            for ($i = 0; $i < count($recetas); $i++) {
+            for ($i = 0; $i < count($info); $i++) {
                 echo "<div class='col-md'>
-                        <div class='card'>
-                            <a href=/receta.php?id=" . $recetas[$i]["id"] . "><img src='" . $recetas[$i]["imagen_url"] . "' class='opacity-card card-img-top img-1'
+                        <div class='card card-size'>
+                            <a href=/receta.php?id=" . $info[$i]["id"] . "><img src='" . $info[$i]["imagen_url"] . "' class='card-img-top'
                                     alt='salmon'></a>
                             <div class='card-body color-card'>
-                                <h5 class='card-title color-w align-text'>" . $recetas[$i]["nombre"] . "</h5>
-                                <div class='line br-use'></div>
+                                <h5 class='card-title color-w align-text'>" . $info[$i]["nombre"] . "</h5>
+                                <h4 class='card-title color-w'>" . $info[$i]["tiempo"] . "</h4>
                                 <div class=' elements-l'>
                                     <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
-                                    <h4 class='color-w text-likes'>" . $recetas[$i]["likes"] . "</h4>";
+                                    <h4 class='color-w text-likes'>" . $info[$i]["likes"] . "</h4>";
 
 
                 echo "<div class='btn-type '>
-                            <button type='button' class='btn btn-danger fw-bold'>" . $recetas[$i]["categorias"][0]["categoria"] . "</button>
+                            <button type='button' class='btn btn-danger fw-bold'>" . $info[$i]["categorias"][0]["categoria"] . "</button>
                          </div>";
-
+                 
 
                 echo            "</div>
                             </div>
                         </div>
                     </div>";
+
+
+               echo"<div class='col-md'>
+                      <div class='format-paragraph'>
+                        <p class='info-paragraph giant-info color-green '>" . $info[$i]["instruciones"] . " </p>
+          
+                        <ul class='list-group-ingredients color-green'>" . $info[$i]["ingredientes"] . "</ul>
+                      </div>
+                    </div>
+                </div>
+            </div>"
+                  
+
             }
 
             ?>
 
 
         </div>
+    </div>
     </section>
 
 
