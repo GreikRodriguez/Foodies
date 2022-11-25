@@ -2,19 +2,20 @@
 include "DB.php";
 
 
-
-
-$recetas = $database->select('Recetas', '*');
-
+$recetas = $database->query("SELECT * FROM db_recetas.Recetas order by likes DESC limit 10;")->fetchAll();
 
 
 for ($i = 0; $i < count($recetas); $i++) {
-    $recetas[$i]["imagen_url"] = "/foodiesv2/img/huevo.jpg";
-    $recetas[$i]["categorias"] = "almuerzo";
+    $recetas[$i]["imagen_url"] = "/imgs/huevo.jpg";
 
     $id_receta = $recetas[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
-    if (count($lista_id_categorias) > 0) {
+
+    if (is_numeric($lista_id_categorias)) {
+
+        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
+        $recetas[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
+    } else if (count($lista_id_categorias) > 0) {
 
         $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
         $recetas[$i]["categorias"] = $categorias;
@@ -90,11 +91,11 @@ for ($i = 0; $i < count($recetas); $i++) {
                                     <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
                                     <h4 class='color-w text-likes'>" . $recetas[$i]["likes"] . "</h4>";
 
-                for ($a = 0; $a < count($recetas[$i]["categorias"]); $a++) {
-                    echo "<div class='btn-type '>
-                            <button type='button' class='btn btn-danger fw-bold'>" . $recetas[$i]["categorias"][$a]["categoria"] . "</button>
+
+                echo "<div class='btn-type '>
+                            <button type='button' class='btn btn-danger fw-bold'>" . $recetas[$i]["categorias"][0]["categoria"] . "</button>
                          </div>";
-                }
+
 
                 echo            "</div>
                             </div>
