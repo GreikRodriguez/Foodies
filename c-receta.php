@@ -38,10 +38,33 @@
                     for ($i = 0; $i < count($arrayIngredientes); $i++) {
                         echo "<li class='list-group-item-ingredients giant-info'>" . $arrayIngredientes[$i] . "</li>";
                     }
+                    
 
                     ?>
+                   
+                      <div class="col-md">
+                         <div class="format-paragraph">
+                          <p class="info-paragraph giant-info color-green ">
+                            <div class="text-center">Riende para <?php echo $info[0]["porciones"] ?> porciones          
+                     </p>
+               
+
+                <div class="col-md">
+                    <div class="format-paragraph">
+                     <p class="info-paragraph giant-info color-green ">
+                     <div class="text-center">La receta cuenta con una dificultada: <?php echo $info[0]["dificultad_id"] ?> 
+                </p>
+
+                 <div class="col-md">
+                    <div class="format-paragraph">
+                     <p class="info-paragraph giant-info color-green ">
+                     <div class="text-center">Demuestranos tu apoyo: <?php echo $info[0]["likes"] ?> ❤ 
+                </p>
                 </ul>
+
             </div>
         </div>
     </div>
+
+
 </div>

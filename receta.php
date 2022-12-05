@@ -5,6 +5,7 @@ $idReceta = $_GET["id"];
 $info = $database->query("SELECT * FROM db_recetas.Recetas WHERE id=$idReceta;")->fetchAll();
 
 
+
 for ($i = 0; $i < count($info); $i++) {
 
     $id_receta = $info[$i]["id"];
@@ -51,23 +52,10 @@ for ($i = 0; $i < count($info); $i++) {
 
 <body>
 
-
-<<<<<<< HEAD
      <?php include "header.php" ?>
      <?php include "c-receta.php" ?>
       <?php include "footer.php" ?>
 
-
-
-=======
-    <?php include "header.php" ?>
-
-    <?php include "c-receta.php" ?>
-
-    
-
-    <?php include "footer.php" ?>
->>>>>>> 2fbd1bfce252cc9ff04398f9dbae9ca1ee832599
 
 
     <!-- AOS Animation -->
