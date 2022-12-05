@@ -57,7 +57,10 @@ for ($i = 0; $i < count($info); $i++) {
       <?php include "footer.php" ?>
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cdc32b6ecf1a561b9e99e669514eff62d75f838
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

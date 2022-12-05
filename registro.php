@@ -26,29 +26,24 @@
     
     <?php include "header.php" ?>
 
-    
-
-    
-    
-        
-        
-        
-          <div class="container-fluid">
+          <div class="container-fluid ps-5 pe-5 g-1 color-green">
             <div class="row">
-              <div class="col-12">
-                <h1 class="text-start">Registro de Recetas</h1>
+              <div class="col-12 h4 pb-2 mb-4">
+                <h1 class="title-margin ps-5 pe-5">Registro de Recetas</h1>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
                 <form action="registro.html" method="POST">
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre de la Receta</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de la receta">
+                  <div class="mb-3 ps-5 pe-5">
+                    <label for="nombre" class="form-label">Nombre de la Receta:</label>
+                    <input type="text" class="form-control me-2" id="nombre" placeholder="Nombre Receta...">
                   </div>
 
+                
 
-                  <div class="mb-3">
+               <div class="register-line">
+                  <div class="mb-3 ps-5 pe-5">
                     <label for="inputGroupFile01" class="form-label">Complejidad</label>
                     <select name="" id="">
                       <option value="Fácil">Fácil</option>
@@ -56,7 +51,7 @@
                       <option value="Medio">Difícil</option>
                   </select>
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 ps-5 pe-5">
                     <label for="inputGroupFile01" class="form-label">Categoria</label>
                     <select name="" id="">
                       <option value="Desayuno">Desayuno</option>
@@ -66,7 +61,7 @@
                       <option value="Postres">Postres</option>
                   </select>
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 ps-5 pe-5">
                    <label for="inputGroupFile01" class="form-label">Ocasión</label>
                     <select name="" id="">
                       <option value="Cumpleaños">Cumpleaños</option>
@@ -78,17 +73,18 @@
                       <option value="Verano">Verano</option>
                     </select>
                    </div>
-                  
+                   </div>
 
-                  
-                  <div class="mb-3">
-                    <label for="preparacion" class="form-label">Preparación</label>
+                
+                  <div class="mb-3 ps-5 pe-5">
+                    <label for="preparacion" class="form-label title-margin">Preparación</label>
                     <textarea class="form-control" id="preparacion" name="preparacion" rows="3"></textarea>
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3 ps-5 pe-5">
                     <label for="ingredientes" class="form-label">Ingredientes</label>
                     <textarea class="form-control" id="ingredientes" name="ingredientes" rows="3"></textarea>
                   </div>
+              
                   <div class="mb-3">
                     <label for="imagen" class="form-label">Imagen</label>
                     <input type="file" class="form-control" id="imagen" name="imagen">
@@ -101,8 +97,8 @@
 
 
 
-          <div class="container-fluid me-5">
-            <table class="table table-dark">
+          <div class="container-fluid me-5 mb-3 ps-5 pe-5">
+            <table class="table">
               <h1 class="pt-5">Tabla de Recetas</h1>
               <thead class="table-dark">
                 <tr>
