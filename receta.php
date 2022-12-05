@@ -1,7 +1,7 @@
 <?php
 include "DB.php";
 
-$idReceta = $_GET["id"];
+ $idReceta = $_GET["id"];
 $info = $database->query("SELECT * FROM db_recetas.Recetas WHERE id=42;")->fetchAll();
 
 
@@ -66,7 +66,7 @@ for ($i = 0; $i < count($info); $i++) {
 
 
             for ($i = 0; $i < count($info); $i++) {
-                echo "<div class='col-md'>
+                echo '<div class="col-md">
                         <div class='card card-size'>
                             <a href=/receta.php?id=" . $info[$i]["id"] . "><img src='" . $info[$i]["imagen_url"] . "' class='card-img-top'
                                     alt='salmon'></a>
@@ -78,7 +78,7 @@ for ($i = 0; $i < count($info); $i++) {
                                     <h4 class='color-w text-likes'>" . $info[$i]["likes"] . "</h4>";
 
 
-                echo "<div class='btn-type '>
+                echo '<div class='btn-type '>;
                             <button type='button' class='btn btn-danger fw-bold'>" . $info[$i]["categorias"][0]["categoria"] . "</button>
                          </div>";
                  
@@ -89,7 +89,7 @@ for ($i = 0; $i < count($info); $i++) {
                     </div>";
 
 
-               echo"<div class='col-md'>
+               echo '<div class='col-md'>
                       <div class='format-paragraph'>
                         <p class='info-paragraph giant-info color-green '>" . $info[$i]["instruciones"] . " </p>
                         <ul class='list-group-ingredients color-green'>" . $info[$i]["ingredientes"] . "</ul>
@@ -98,6 +98,7 @@ for ($i = 0; $i < count($info); $i++) {
                   
 
             }
+        
 
             ?>
 
