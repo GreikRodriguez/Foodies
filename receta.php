@@ -47,7 +47,6 @@ for ($i = 0; $i < count($info); $i++) {
     <!-- JavaScript -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <link rel="stylesheet" href="/foodiesv2/css/main.css">
-
 </head>
 
 <body>

@@ -28,7 +28,13 @@
                 <p class="info-paragraph giant-info color-green ">
                     <?php echo $info[0]["instrucciones"] ?>
                 </p>
+                <?php
+                $ingredientes = $info[0]["ingredientes"];
+                $arrayIngredientes = explode(",", $ingredientes);
+                var_dump($arrayIngredientes);
 
+                ?>
+                
                 <ul class="list-group-ingredients color-green">
                     <li class="list-group-item-ingredients giant-info">Salmón fresco rodaja 2</li>
                     <li class="list-group-item-ingredients giant-info">Harina de trigo 75 g</li>
