@@ -50,7 +50,7 @@
           <a href="#"><img src="/foodiesv2/icons/lupa.png" alt="Lupa"></a>
         </form>
           <div>
-            <a href="#" class="social-media-link d-flex ps-5 pe-5">
+            <a href="/foodiesv2/registro/Index.html" class="social-media-link d-flex ps-5 pe-5">
               <img class="user-size red-margin" src="/foodiesv2/icons/usuario.png" alt="usuario">
             </a>
           </div>
