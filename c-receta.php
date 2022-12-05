@@ -29,14 +29,17 @@
                     <?php echo $info[0]["instrucciones"] ?>
                 </p>
 
+
                 <ul class="list-group-ingredients color-green">
-                    <li class="list-group-item-ingredients giant-info">Salmón fresco rodaja 2</li>
-                    <li class="list-group-item-ingredients giant-info">Harina de trigo 75 g</li>
-                    <li class="list-group-item-ingredients giant-info">Aceite de oliva virgen extra 100 ml</li>
-                    <li class="list-group-item-ingredients giant-info">Jamón ibérico 50 g</li>
-                    <li class="list-group-item-ingredients giant-info">Sidra de manzana 100 ml</li>
-                    <li class="list-group-item-ingredients giant-info">Caldo de pescado o fumet 100 ml</li>
-                    <li class="list-group-item-ingredients giant-info">Sal
+
+                    <?php
+                    $ingredientes = $info[0]["ingredientes"];
+                    $arrayIngredientes = explode(",", $ingredientes);
+                    for ($i = 0; $i < count($arrayIngredientes); $i++) {
+                        echo "<li class='list-group-item-ingredients giant-info'>" . $arrayIngredientes[$i] . "</li>";
+                    }
+
+                    ?>
                 </ul>
             </div>
         </div>

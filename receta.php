@@ -47,18 +47,27 @@ for ($i = 0; $i < count($info); $i++) {
     <!-- JavaScript -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <link rel="stylesheet" href="/foodiesv2/css/main.css">
-
 </head>
 
 <body>
 
 
+<<<<<<< HEAD
      <?php include "header.php" ?>
      <?php include "c-receta.php" ?>
       <?php include "footer.php" ?>
 
 
 
+=======
+    <?php include "header.php" ?>
+
+    <?php include "c-receta.php" ?>
+
+    
+
+    <?php include "footer.php" ?>
+>>>>>>> 2fbd1bfce252cc9ff04398f9dbae9ca1ee832599
 
 
     <!-- AOS Animation -->
