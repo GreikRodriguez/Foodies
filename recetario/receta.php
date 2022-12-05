@@ -128,7 +128,7 @@
     <!-- nav menu -->
 
 
-    
+
      <!-- cart info -->
 <div class="container-fluid">
     <div class="h4 pb-2 mb-4 color-green">
@@ -155,6 +155,7 @@
             </div>
           </div>
       </div>
+      
         <div class="col-md">
           <div class="format-paragraph">
           <p class="info-paragraph giant-info color-green ">
@@ -176,6 +177,7 @@
           </ul>
         </div>
       </div>
+
     </div> 
   </div>  
   <!-- cart info -->

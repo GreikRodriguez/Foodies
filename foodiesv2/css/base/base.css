@@ -63,7 +63,7 @@ body{
 /*redondo del buscador*/
 .search-nav{
     border-radius: 7rem; 
-    width: 45rem;
+    width: 38rem;
 }
 
 .main-title{
@@ -137,6 +137,11 @@ body{
     height: 2.5rem;
     width: 2.5rem;
     margin-top:8px;   
+}
+
+.user-size{
+    height: 3.5rem;
+    width: 3.5rem;  
 }
 
 .elements-l{

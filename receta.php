@@ -92,12 +92,9 @@ for ($i = 0; $i < count($info); $i++) {
                echo"<div class='col-md'>
                       <div class='format-paragraph'>
                         <p class='info-paragraph giant-info color-green '>" . $info[$i]["instruciones"] . " </p>
-          
                         <ul class='list-group-ingredients color-green'>" . $info[$i]["ingredientes"] . "</ul>
-                      </div>
-                    </div>
-                </div>
-            </div>"
+                      </div>  
+                    </div>"
                   
 
             }
