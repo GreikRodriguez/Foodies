@@ -1,13 +1,11 @@
 <?php
 include "DB.php";
 
- $idReceta = $_GET["id"];
-$info = $database->query("SELECT * FROM db_recetas.Recetas WHERE id=42;")->fetchAll();
+$idReceta = $_GET["id"];
+$info = $database->query("SELECT * FROM db_recetas.Recetas WHERE id=$idReceta;")->fetchAll();
 
 
 for ($i = 0; $i < count($info); $i++) {
-
-
 
     $id_receta = $info[$i]["id"];
     $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
@@ -24,6 +22,7 @@ for ($i = 0; $i < count($info); $i++) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,63 +51,30 @@ for ($i = 0; $i < count($info); $i++) {
 </head>
 
 <body>
+
+
     <?php include "header.php" ?>
 
-    <section>
-    <div class="container-fluid">
-        <div class="h4 pb-2 mb-4 color-green">
-            <h2 class="title-margin ps-5 pe-5">RECETA</h2>
-        </div>
+    <?php include "c-receta.php" ?>
 
-        <div class="row g-1 ps-5 pe-5">
-            <?php
+    <?php include "footer.php" ?>
 
 
 
-            for ($i = 0; $i < count($info); $i++) {
-                echo '<div class="col-md">
-                        <div class='card card-size'>
-                            <a href=/receta.php?id=" . $info[$i]["id"] . "><img src='" . $info[$i]["imagen_url"] . "' class='card-img-top'
-                                    alt='salmon'></a>
-                            <div class='card-body color-card'>
-                                <h5 class='card-title color-w align-text'>" . $info[$i]["nombre"] . "</h5>
-                                <h4 class='card-title color-w'>" . $info[$i]["tiempo"] . "</h4>
-                                <div class=' elements-l'>
-                                    <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
-                                    <h4 class='color-w text-likes'>" . $info[$i]["likes"] . "</h4>";
 
 
-                echo '<div class='btn-type '>;
-                            <button type='button' class='btn btn-danger fw-bold'>" . $info[$i]["categorias"][0]["categoria"] . "</button>
-                         </div>";
-                 
-
-                echo            "</div>
-                            </div>
-                        </div>
-                    </div>";
 
 
-               echo '<div class='col-md'>
-                      <div class='format-paragraph'>
-                        <p class='info-paragraph giant-info color-green '>" . $info[$i]["instruciones"] . " </p>
-                        <ul class='list-group-ingredients color-green'>" . $info[$i]["ingredientes"] . "</ul>
-                      </div>  
-                    </div>"
-                  
-
-            }
-        
-
-            ?>
 
 
-        </div>
-    </div>
-    </section>
 
 
- <?php include "footer.php" ?>
+
+
+
+
+
+
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

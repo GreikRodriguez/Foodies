@@ -100,36 +100,10 @@ for ($i = 0; $i < count($recetasG); $i++) {
 
         <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
             <?php
-
-
-
-            for ($i = 0; $i < count($recetas); $i++) {
-                echo "<div class='col-md'>
-                        <div class='card'>
-                            <a href=/receta.php?id=" . $recetas[$i]["id"] . "><img src='" . $recetas[$i]["imagen_url"] . "' class='opacity-card card-img-top img-1'
-                                    alt='salmon'></a>
-                            <div class='card-body color-card'>
-                                <h5 class='card-title color-w align-text'>" . $recetas[$i]["nombre"] . "</h5>
-                                <div class='line br-use'></div>
-                                <div class=' elements-l'>
-                                    <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
-                                    <h4 class='color-w text-likes'>" . $recetas[$i]["likes"] . "</h4>";
-
-
-                echo "<div class='btn-type '>
-                            <button type='button' class='btn btn-danger fw-bold'>" . $recetas[$i]["categorias"][0]["categoria"] . "</button>
-                         </div>";
-
-
-                echo            "</div>
-                            </div>
-                        </div>
-                    </div>";
-            }
-
+                for ($i = 0; $i < count($recetas); $i++) {
+                    include "card.php";
+                }
             ?>
-
-
         </div>
     </section>
     <!-- top recetas -->
