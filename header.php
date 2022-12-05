@@ -11,37 +11,37 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="top-nav-item"><a class="nav-link top-nav-link top-nav-item" aria-current="page" href="#">INICIO</a></li>
+          <li class="top-nav-item"><a class="nav-link top-nav-link top-nav-item" aria-current="page" href="/index.php">INICIO</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle top-nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIA</a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">DESAYUNO</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">ENTRADAS</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">ALMUERZO</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">SOPAS</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">POSTRES</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">BEBIDAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">DESAYUNO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">ENTRADAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">ALMUERZO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">SOPAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">POSTRES</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">BEBIDAS</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle top-nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">DIFICULTAD</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">FACIL</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">INTERMEDIA</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">AVANZADO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">FACIL</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">INTERMEDIA</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">AVANZADO</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle top-nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">OCACIONES</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">TODAS</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">CUMPLEAÑOS</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">DIA DE LA MADRE</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">DIA DEL PADRE</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">DIA DEL NIÑO</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">NAVIDAD</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">SEMANA SANTA</a></li>
-              <li><a class="dropdown-item" href="/foodiesv2/secciones/Index.html">VERANO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">TODAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">CUMPLEAÑOS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">DIA DE LA MADRE</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">DIA DEL PADRE</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">DIA DEL NIÑO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">NAVIDAD</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">SEMANA SANTA</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">VERANO</a></li>
             </ul>
           </li>
         </ul>
