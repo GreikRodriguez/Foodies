@@ -26,14 +26,7 @@
     
     <?php include "header.php" ?>
 
-    
-
-    
-    
-        
-        
-        
-          <div class="container-fluid">
+          <div class="container-fluid ps-5 pe-5 g-1">
             <div class="row">
               <div class="col-12">
                 <h1 class="text-start">Registro de Recetas</h1>

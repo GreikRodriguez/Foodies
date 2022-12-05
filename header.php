@@ -6,7 +6,7 @@
     <!--  Menu navigation -->
     <nav id="navbar-main" class="navbar top-nav mobile-offcanvas navbar-expand-lg mx-auto color-light total-size">
       <div class="d-flex justify-content-between align-items-center ">
-        <a href="index.html"><img src="/imgs/logo.png" class="size position-relative ms-5 mobile-logo" alt="Graphic identifier"></a>
+        <a href="/index.php"><img src="/imgs/logo.png" class="size position-relative ms-5 mobile-logo" alt="Graphic identifier"></a>
         <div class="offcanvas-header"><button id="btn-close" class="btn btn-light float-end me-5">X</button></div>
       </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,7 +50,7 @@
           <a href="#"><img src="/foodiesv2/icons/lupa.png" alt="Lupa"></a>
         </form>
         <div>
-          <a href="/registro.html" class="social-media-link d-flex ps-5 pe-5">
+          <a href="/registro.php" class="social-media-link d-flex ps-5 pe-5">
             <img class="user-size red-margin" src="/foodiesv2/icons/usuario.png" alt="usuario">
           </a>
         </div>
