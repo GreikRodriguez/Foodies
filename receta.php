@@ -56,22 +56,9 @@ for ($i = 0; $i < count($info); $i++) {
 
     <?php include "c-receta.php" ?>
 
+    
+
     <?php include "footer.php" ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- AOS Animation -->
