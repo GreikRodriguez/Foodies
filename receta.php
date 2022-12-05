@@ -53,23 +53,9 @@ for ($i = 0; $i < count($info); $i++) {
 <body>
 
 
-    <?php include "header.php" ?>
-
-    <?php include "c-receta.php" ?>
-
-    <?php include "footer.php" ?>
-
-
-
-
-
-
-
-
-
-
-
-
+     <?php include "header.php" ?>
+     <?php include "c-receta.php" ?>
+      <?php include "footer.php" ?>
 
 
 
