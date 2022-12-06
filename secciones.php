@@ -1,3 +1,31 @@
+<?php
+include "DB.php";
+
+$recetasL = $database->select("Recetas", "*");
+
+
+for ($i = 0; $i < count($recetasL); $i++) {
+
+
+    $id_receta = $recetasL[$i]["id"];
+    $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
+
+    if (is_numeric($lista_id_categorias)) {
+
+        $categorias = $database->select('Categoria', "*", ["id" => $lista_id_categorias]);
+        $recetasL[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
+    } else if (count($lista_id_categorias) > 0) {
+
+        $dificultad = $database->select('dificultad', "*", ["id" => $lista_id_categorias]);
+        $recetasL[$i]["dificultad"] = $dificultad;
+    } else {
+        $recetasL[$i]["ocaciones"] = [["ocaciones" => "Almuerzo X"]];
+    }
+}
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +52,7 @@
 </head>
 <body>
 
-    <?php include "header.php"?>
-
+  <?php include "header.php"?>
      <section>
         <div class="h4 pb-2 mb-4 color-green ">
           <h2 class="title-margin ps-5 pe-5">ALMUERZO</h2>
@@ -102,6 +129,42 @@
               </div>
         </div>  
     </section>
+
+  <!-- filtro -->
+  <section>
+        <div class="h4 pb-2 mb-4 color-green ">
+            <h2 class="title-margin ps-5 pe-5">RECETAS</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5pr card-size">
+            <?php
+            for ($i = 0; $i < count($recetasL); $i++) {
+                echo "<div class='col-md'>
+                        <div class='card'>
+                            <a href=/receta.php?id='" . $recetasL[$i]["id"] . "'><img src='" . $recetasL[$i]["imagen_url"] . "' class='opacity-card card-img '
+                                    alt='salmon'></a>
+                            <div class='card-body color-card'>
+                                <h5 class='card-title color-w align-text'>" . $recetasL[$i]["nombre"] . "</h5>
+                                <div class='line br-use'></div>
+                                <div class=' elements-l'>
+                                    <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
+                                    <h4 class='color-w text-likes'>" . $recetasL[$i]["likes"] . "</h4>";
+
+
+                echo "<div class='btn-type '>
+                            <button type='button' class='btn btn-danger fw-bold'>" . $recetasL[$i]["categorias"][0]["categoria"] . "</button>
+                         </div>";
+
+
+                echo            "</div>
+                            </div>
+                        </div>
+                    </div>";
+            }
+            ?>
+        </div>
+    </section>
+    <!-- filtro -->
 
     <?php include "footer.php" ?>
 </body>
