@@ -15,12 +15,12 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle top-nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">CATEGORIA</a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item" href="/secciones/secciones.php">DESAYUNO</a></li>
-              <li><a class="dropdown-item" href="/secciones/secciones.php">ENTRADAS</a></li>
-              <li><a class="dropdown-item" href="/secciones/secciones.php">ALMUERZO</a></li>
-              <li><a class="dropdown-item" href="/secciones/secciones.php">SOPAS</a></li>
-              <li><a class="dropdown-item" href="/secciones/secciones.php">POSTRES</a></li>
-              <li><a class="dropdown-item" href="/secciones/secciones.php">BEBIDAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">DESAYUNO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">ENTRADAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">ALMUERZO</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">SOPAS</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">POSTRES</a></li>
+              <li><a class="dropdown-item" href="/secciones.php">BEBIDAS</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

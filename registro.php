@@ -25,82 +25,81 @@
 <body>
     
     <?php include "header.php" ?>
-
-          <div class="container-fluid ps-5 pe-5 g-1 color-green">
+  <section>
+      <div class="container-fluid ps-5 pe-5 g-1 color-green">
             <div class="row">
               <div class="col-12 h4 pb-2 mb-4">
                 <h1 class="title-margin ps-5 pe-5">Registro de Recetas</h1>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <form action="registro.html" method="POST">
-                  <div class="mb-3 ps-5 pe-5">
-                    <label for="nombre" class="form-label">Nombre de la Receta:</label>
-                    <input type="text" class="form-control me-2" id="nombre" placeholder="Nombre Receta...">
-                  </div>
-
-                
-
+        <div class="row">
+          <div class="col-12 col-md">
+            <form action="registro.html" method="POST">
+              <div class="mb-3 ps-5 pe-5">
+                <label for="nombre" class="form-label register-text">Nombre de la Receta:</label>
+                <input type="text" class="form-control me-2 shorter-space" id="nombre" placeholder="Nombre Receta...">
+              </div>
                <div class="register-line">
                   <div class="mb-3 ps-5 pe-5">
                     <label for="inputGroupFile01" class="form-label">Complejidad</label>
                     <select name="" id="">
                       <option value="Fácil">Fácil</option>
-                      <option value="Medio">Medio</option>
-                      <option value="Medio">Difícil</option>
+                      <option value="Medio">Intermedio</option>
+                      <option value="Medio">Avanzado</option>
                   </select>
                   </div>
                   <div class="mb-3 ps-5 pe-5">
                     <label for="inputGroupFile01" class="form-label">Categoria</label>
                     <select name="" id="">
                       <option value="Desayuno">Desayuno</option>
+                      <option value="Desayuno">Entradas</option>
                       <option value="Almuerzo">Almuerzo</option>
                       <option value="Sopas">Sopas</option>
-                      <option value="Bebidas">Bebidas</option>
                       <option value="Postres">Postres</option>
-                  </select>
+                      <option value="Bebidas">Bebidas</option>
+                    </select>
                   </div>
                   <div class="mb-3 ps-5 pe-5">
                    <label for="inputGroupFile01" class="form-label">Ocasión</label>
-                    <select name="" id="">
+                     <select name="" id="">
+                     <option value="Cumpleaños">Todas</option>
                       <option value="Cumpleaños">Cumpleaños</option>
-                      <option value="Día del padre">Día del padre</option>
                       <option value="Día de la madre">Día de la madre</option>
+                      <option value="Día del padre">Día del padre</option>
                       <option value="Día del niño">Día del niño</option>
                       <option value="Navidad">Navidad</option>
                       <option value="Semana Santa">Semana Santa</option>
                       <option value="Verano">Verano</option>
-                    </select>
-                   </div>
-                   </div>
-
-                
+                     </select>
+                  </div>
+               </div>
                   <div class="mb-3 ps-5 pe-5">
-                    <label for="preparacion" class="form-label title-margin">Preparación</label>
-                    <textarea class="form-control" id="preparacion" name="preparacion" rows="3"></textarea>
+                    <label for="preparacion" class="form-label title-margin register-text">Preparación:</label>
+                    <textarea class="form-control shorter-space" id="preparacion" name="preparacion" rows="3"></textarea>
                   </div>
                   <div class="mb-3 ps-5 pe-5">
-                    <label for="ingredientes" class="form-label">Ingredientes</label>
-                    <textarea class="form-control" id="ingredientes" name="ingredientes" rows="3"></textarea>
+                    <label for="ingredientes" class="form-label register-text">Ingredientes:</label>
+                    <textarea class="form-control shorter-space" id="ingredientes" name="ingredientes" rows="3"></textarea>
                   </div>
-              
-                  <div class="mb-3">
-                    <label for="imagen" class="form-label">Imagen</label>
-                    <input type="file" class="form-control" id="imagen" name="imagen">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
-              </div>
-            </div>
+                  <div class="ps-5" >
+                  <button type="submit" class="btn btn-success"> Subir Receta </button>
+                  </div> 
+            </form>
           </div>
+            <div class="mb-3 col-md ">
+                <label for="imagen" class="form-label register-text">Imagen:</label>
+                <input type="file" class="form-control image-register" id="imagen" name="imagen...">
+            </div>
+        </div>
+      </div>    
+  </section>
 
 
 
-          <div class="container-fluid me-5 mb-3 ps-5 pe-5">
+          <div class="container-fluid me-5 mb-3 ps-5 pe-5 color-green">
             <table class="table">
               <h1 class="pt-5">Tabla de Recetas</h1>
-              <thead class="table-dark">
+              <thead class="color-table">
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Nombre</th>
@@ -117,10 +116,10 @@
                   <tr>
                     <th scope="row">1</th>
                     
-                    <td>Pollo</td>
-                    <td>Media</td>
-                    <td>Desayuno</td>
-                    <td>Cumpleaños</td>
+                    <td>Pan de soda con trigo sarraceno y pipas de calabaza</td>
+                    <td>Intermedio</td>
+                    <td>Postre</td>
+                    <td>Navidad</td>
                     <td>img</td>
                     <td>@/@</td>
                     
@@ -128,10 +127,10 @@
                   <tr>
                     <th scope="row">2</th>
                     
-                    <td>Hanbusguesa</td>
-                    <td>Alta</td>
-                    <td>Desayuno</td>
-                    <td>Navidad</td>
+                    <td>Tataki de ternera marinada con mostaza, especias y sal de carbón</td>
+                    <td>Avanzado</td>
+                    <td>Almuerzo</td>
+                    <td>Dia de la Madre</td>
                     <td>img</td>
                     <td>@/@</td>
                    
@@ -139,10 +138,10 @@
                   <tr>
                     <th scope="row">3</th>
                     
-                    <td>Pasta</td>
-                    <td>Media</td>
+                    <td>Omelet de huevo</td>
+                    <td>Facil</td>
                     <td>Desayuno</td>
-                    <td>Halloween</td>
+                    <td>Todas</td>
                     <td>img</td>
                     <td>@/@</td>
                   

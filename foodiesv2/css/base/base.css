@@ -232,9 +232,26 @@ body{
 
   .register-line {
     display: flex;
-    
 }
 
+  .shorter-space{
+    width: 48rem;
+    background: #db6b43;
+    }
+
+    .image-register{
+        height: 24rem;
+        width: 30rem;
+    }
+
+    .register-text{
+       font-size: x-large;
+    }
+
+    .color-table{
+        --bs-table-bg: #A7C957;
+        color: white;
+    }
 
 
 /* Large devices (desktops, less than 1200px) */

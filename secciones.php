@@ -34,7 +34,7 @@
         <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
               <div class="col">
                 <div class="card">
-                  <a href="../recetario/Index.html"><img src="./img2/salmon.jpg" class="opacity-card card-img-top" alt="..."></a>
+                  <a href="../recetario/Index.html"><img src="./imgs/salmon.jpg" class="opacity-card card-img-top" alt="..."></a>
                   <div class="card-body color-card">
                     <h5 class="card-title color-w align-text">Salmón al estilo teriyaki</h5>
                     <p class="card-text"></p>
@@ -51,7 +51,7 @@
               </div>
               <div class="col">
                 <div class="card">
-                  <a href="../recetario/Index.html"><img src="./img2/pollo.jpg" class="opacity-card card-img-top" alt="..."></a>
+                  <a href="../recetario/Index.html"><img src="./imgs/pollo.jpg" class="opacity-card card-img-top" alt="..."></a>
                   <div class="card-body color-card">
                     <h5 class="card-title color-w align-text">Pollo al horno en salsa de mandarina veg</h5>
                     <p class="card-text"></p>
@@ -68,7 +68,7 @@
               </div>
               <div class="col">
                 <div class="card">
-                  <a href="../recetario/Index.html"><img src="./img2/carne.jpg" class="opacity-card card-img-top" alt="..."></a>
+                  <a href="../recetario/Index.html"><img src="./imgs/carne.jpg" class="opacity-card card-img-top" alt="..."></a>
                   <div class="card-body color-card">
                     <h5 class="card-title color-w align-text">Tataki de ternera con mostaza y especias</h5>
                     <p class="card-text"></p>
@@ -85,7 +85,7 @@
               </div>
               <div class="col">
                 <div class="card">
-                  <a href="../recetario/Index.html"><img src="./img2/huevo.jpg" class="opacity-card card-img-top" alt="..."></a>
+                  <a href="../recetario/Index.html"><img src="./imgs/huevo.jpg" class="opacity-card card-img-top" alt="..."></a>
                   <div class="card-body color-card">
                     <h5 class="card-title color-w align-text">Bowl de quinoa, verduritas y huevo</h5>
                     <p class="card-text"></p>
