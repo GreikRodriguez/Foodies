@@ -45,8 +45,8 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex search-nav ps-5  ">
-          <input class="form-control me-2 " type="text" placeholder="Buscar Recetas...">
+        <form class="d-flex search-nav ps-5" action="search.php">
+          <input class="form-control me-2" name="keyword" aria-label="Search" type="search" type="text" placeholder="Buscar Recetas...">
           <a href="#"><img src="/foodiesv2/icons/lupa.png" alt="Lupa"></a>
         </form>
         <div>
