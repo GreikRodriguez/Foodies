@@ -112,7 +112,7 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
 
 
 
-  <div class="container-fluid me-5 mb-3 ps-5 pe-5 color-green">
+  <!-- <div class="container-fluid me-5 mb-3 ps-5 pe-5 color-green">
     <table class="table">
       <h1 class="pt-5">Tabla de Recetas</h1>
       <thead class="color-table">
@@ -166,7 +166,7 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
         </tbody>
       </form>
     </table>
-  </div>
+  </div> -->
   <?php include "footer.php" ?>
 </body>
 

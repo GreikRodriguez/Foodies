@@ -1,53 +1,42 @@
 <?php
-include "DB.php";
+    include "DB.php";
+    /* $data=$database ->select("Recetas", "*"); */
+    $levels = $database->select("dificultad","*");
+    $categories = $database->select("Categorias","*");
+    $ocassions = $database->select("festividades","*");
 
-
-$recetas = $database->query("SELECT * FROM db_recetas.Recetas order by likes DESC limit 10;")->fetchAll();
-
-
-for ($i = 0; $i < count($recetas); $i++) {
-
-
-
-    $id_receta = $recetas[$i]["id"];
-    $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
-
-    if (is_numeric($lista_id_categorias)) {
-
-        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetas[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
-    } else if (count($lista_id_categorias) > 0) {
-
-        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetas[$i]["categorias"] = $categorias;
-    } else {
-        $recetas[$i]["categorias"] = [["categoria" => "Almuerzo X"]];
-    }
-}
-
-
-$recetasG = $database->select("Recetas", "*");
-
-
-for ($i = 0; $i < count($recetasG); $i++) {
-
-
-    $id_receta = $recetasG[$i]["id"];
-    $lista_id_categorias = $database->select('Recetas_has_Categorias', 'Categorias_id', ["Recetas_id" => $id_receta]);
-
-    if (is_numeric($lista_id_categorias)) {
-
-        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetasG[$i]["categorias"] = [["categoria" => $categorias["categoria"]]];
-    } else if (count($lista_id_categorias) > 0) {
-
-        $categorias = $database->select('Categorias', "*", ["id" => $lista_id_categorias]);
-        $recetasG[$i]["categorias"] = $categorias;
-    } else {
-        $recetasG[$i]["categorias"] = [["categoria" => "Almuerzo X"]];
-    }
-}
-
+    //featured recipes
+    $featured_recipes = $database->select("Recetas","*",[
+        "recipe_is_featured" => 1
+    ]);
+    //all recipes
+    $recipes = $database->select("Recetas",[
+        "[><]Categorias"=>["id" => "id_categoria"],
+        "[><]dificultad"=>["dificultad_id" => "id"],
+        "[><]festividades"=>["id_festividad" => "id"],
+    ],[
+        "Recetas.id",
+        "Recetas.nombre", 
+        "Recetas.tiempo", 
+        "Recetas.imagen_url", 
+        "Recetas.instrucciones", 
+        "Recetas.likes", 
+        "Recetas.porciones", 
+        "Recetas.ingredientes",
+        "Categorias.categoria",
+        "Recetas.id_ocaciones",
+        "Recetas.id_categoria", 
+        "Recetas.dificultad_id", 
+        "festividades.festividades", 
+        "dificultad.dificultad"  
+    ]);
+    //top 10
+    $popular_recipes = $database->select("Recetas","*",[
+        "ORDER" => [
+            "likes" => "DESC"
+        ],
+        'LIMIT' => 10
+    ]);
 
 ?>
 <!DOCTYPE html>
@@ -99,10 +88,25 @@ for ($i = 0; $i < count($recetasG); $i++) {
         </div>
 
         <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
-            <?php
-                for ($i = 0; $i < count($recetas); $i++) {
-                    include "card.php";
-                }
+            <?php 
+             foreach ($popular_recipes as $recipe){
+                echo "<div class='col-md'>
+                <div class='card'>
+                <a href='receta.php?id="
+                .$recipe["id"]."'class='text-pink  nav-link topnav-link'><img class='opacity-card card-img-top img-1' src='./imgs/".$recipe["imagen_url"]."'>
+                <div class='card-body color-card'>
+                  <div class='card-title color-w align-text'>
+                <h5 class='card-title'>".$recipe["nombre"]."</h5>
+                <div class='line br-use'></div>
+                <div class='elements-l'>
+                <img class='icon-size card-img-top' src='like.png' alt='like'/>
+                <h4 class='color-w text-likes'>".$recipe["likes"]."</h4>
+                <div class='btn-type'><button type='button' class='btn btn-danger fw-bold'>".$recipe["categoria"]."</button></div>
+                </div>
+                </a>
+                  </div>
+                </div></div></div>";
+            }
             ?>
         </div>
     </section>
@@ -114,10 +118,31 @@ for ($i = 0; $i < count($recetasG); $i++) {
             <h2 class="title-margin ps-5 pe-5">RECETAS DE COCINA</h2>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5pr card-size">
-            <?php
-            for ($i = 0; $i < count($recetasG); $i++) {
-                echo "<div class='col-md'>
+        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
+                <?php 
+                    foreach ($recipes as $recipe){
+                        echo "<div class='col-md'>
+                        <div class='card'>
+                        <a href='receta.php?id="
+                        .$recipe["id"]."'class='text-pink nav-link topnav-link'><img class='opacity-card card-img-top img-1' src='./imgs/".$recipe["imagen_url"]."'>
+                          <div class='card-body color-card'>
+                          <div class='card-title color-w align-text'>
+                        <h5 class='card-title'>".$recipe["nombre"]."</h5>
+                        <div class='line br-use'></div>
+                        <div class='elements-l'> 
+                        <img class='icon-size card-img-top' src='like.png' alt='like'/>
+                        <h4 class='color-w text-likes'>".$recipe["likes"]."</h4>
+                        <div class='btn-type'><button type='button' class='btn btn-danger fw-bold'>000</button></div>
+                        </div>
+                        </a>
+                            </div>
+                        </div></div></div>";
+                    }
+                ?>      
+
+
+            
+                 <!-- echo "<div class='col-md'>
                         <div class='card'>
                             <a href=/receta.php?id='" . $recetasG[$i]["id"] . "'><img src='" . $recetasG[$i]["imagen_url"] . "' class='opacity-card card-img '
                                     alt='salmon'></a>
@@ -137,9 +162,8 @@ for ($i = 0; $i < count($recetasG); $i++) {
                 echo            "</div>
                             </div>
                         </div>
-                    </div>";
-            }
-            ?>
+                    </div>"; -->
+            
         </div>
     </section>
     <!-- recetas -->
@@ -149,6 +173,7 @@ for ($i = 0; $i < count($recetasG); $i++) {
     <?php include "footer.php" ?>
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
 

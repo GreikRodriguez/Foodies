@@ -33,7 +33,7 @@ function insertRecipe($request = []) {
 }
 
 function insertFile($File = []): string {
-    $target_dir = "/imgs/";
+    $target_dir = "./imgs/";
     $target_file = $target_dir . basename($File["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
