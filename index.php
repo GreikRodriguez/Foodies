@@ -10,9 +10,10 @@
         "recipe_is_featured" => 1
     ]);
     //all recipes
-    $recipes = $database->select("Recetas",[
+    $recipes=$database ->select("Recetas", "*");
+   /*  $recipes = $database->select("Recetas",[
         "[><]Categorias"=>["id" => "id_categoria"],
-        "[><]dificultad"=>["dificultad_id" => "id"],
+        "[><]dificultad"=>["id" => "dificultad_id"],
         "[><]festividades"=>["id_festividad" => "id"],
     ],[
         "Recetas.id",
@@ -29,7 +30,7 @@
         "Recetas.dificultad_id", 
         "festividades.festividades", 
         "dificultad.dificultad"  
-    ]);
+    ]); */
     //top 10
     $popular_recipes = $database->select("Recetas","*",[
         "ORDER" => [
@@ -101,7 +102,7 @@
                 <div class='elements-l'>
                 <img class='icon-size card-img-top' src='like.png' alt='like'/>
                 <h4 class='color-w text-likes'>".$recipe["likes"]."</h4>
-                <div class='btn-type'><button type='button' class='btn btn-danger fw-bold'>".$recipe["categoria"]."</button></div>
+                <div class='btn-type'><button type='button' class='btn btn-danger fw-bold'>000</button></div>
                 </div>
                 </a>
                   </div>
@@ -139,31 +140,6 @@
                         </div></div></div>";
                     }
                 ?>      
-
-
-            
-                 <!-- echo "<div class='col-md'>
-                        <div class='card'>
-                            <a href=/receta.php?id='" . $recetasG[$i]["id"] . "'><img src='" . $recetasG[$i]["imagen_url"] . "' class='opacity-card card-img '
-                                    alt='salmon'></a>
-                            <div class='card-body color-card'>
-                                <h5 class='card-title color-w align-text'>" . $recetasG[$i]["nombre"] . "</h5>
-                                <div class='line br-use'></div>
-                                <div class=' elements-l'>
-                                    <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
-                                    <h4 class='color-w text-likes'>" . $recetasG[$i]["likes"] . "</h4>";
-
-
-                echo "<div class='btn-type '>
-                            <button type='button' class='btn btn-danger fw-bold'>" . $recetasG[$i]["categorias"][0]["categoria"] . "</button>
-                         </div>";
-
-
-                echo            "</div>
-                            </div>
-                        </div>
-                    </div>"; -->
-            
         </div>
     </section>
     <!-- recetas -->
