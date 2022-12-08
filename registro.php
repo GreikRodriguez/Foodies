@@ -59,24 +59,24 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
               </div>
               <div class="register-line">
                 <div class="mb-3 ps-5 pe-5">
-                  <label for="inputGroupFile01" class="form-label">Complejidad</label>
-                  <select name="complejidad" id="">
+                  <label for="complejidad" class="form-label">Complejidad</label>
+                  <select name="complejidad" id="complejidad">
                     <?php foreach ($complexity as $index => $value) : ?>
                       <option value="<?= $index + 1 ?>"><?= $value ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
                 <div class="mb-3 ps-5 pe-5">
-                  <label for="inputGroupFile01" class="form-label">Categoria</label>
-                  <select name="categoria" id="">
+                  <label for="categoria" class="form-label">Categoria</label>
+                  <select name="categoria" id="categoria">
                     <?php foreach ($categoties as $value) : ?>
                       <option value="<?= $value ?>"><?= $value ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
                 <div class="mb-3 ps-5 pe-5">
-                  <label for="inputGroupFile01" class="form-label">Ocasión</label>
-                  <select name="ocacion" id="">
+                  <label for="ocacion" class="form-label">Ocasión</label>
+                  <select name="ocacion" id="ocacion">
                     <?php foreach ($occasions as $value) : ?>
                       <option value="<?= $value ?>"><?= $value ?></option>
                     <?php endforeach ?>
@@ -96,8 +96,9 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
               </div>
             </div>
             <div class="mb-3 col-md ">
-              <label for="imagen" class="form-label register-text">Imagen:</label>
-              <input type="file" class="form-control image-register" id="imagen" name="imagen">
+              <label for="imagen_url" class="form-label register-text">Imagen:</label>
+              <img id="preview" src="./imgs/<?php echo $data[0]["imagen_url"]; ?>" width="125" height="125" alt="Preview" class="me-5">
+              <input type="file" class="form-control image-register" id="imagen_url" name="imagen_url">
             </div>
           </form>
         </div>
