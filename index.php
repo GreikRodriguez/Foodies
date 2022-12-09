@@ -88,12 +88,12 @@
             <h2 class="title-margin ps-5 pe-5">TOP 10 RECETAS</h2>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
+     <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5 card-size-top-10">
             <?php 
              foreach ($popular_recipes as $recipe){
                 echo "<div class='col-md'>
                 <div class='card'>
-                <a href='receta.php?id="
+                   <a href='receta.php?id="
                 .$recipe["id"]."'class='text-pink  nav-link topnav-link'><img class='opacity-card card-img-top img-1' src='./imgs/".$recipe["imagen_url"]."'>
                 <div class='card-body color-card'>
                   <div class='card-title color-w align-text'>

@@ -6,9 +6,9 @@
     // Reference: https://medoo.in/api/select
     // Note: don't delete the [>] 
         $data = $database->select("Recetas",[
-            "[><]Categorias"=>["id" => "id"],
-            "[><]dificultad"=>["id" => "id"],
-            "[><]festividades"=>["id" => "id"]
+            "[><]Categorias"=>["categorias_id" => "id"],
+            "[><]dificultad"=>["dificultad_id" => "id"],
+            "[><]festividades"=>["festividades_id" => "id"]
         ],[
             "Recetas.id",
             "Recetas.nombre",
