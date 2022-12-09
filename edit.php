@@ -1,5 +1,4 @@
 <?php
-   
     require 'DB.php';
 
     $categories = $database->select("Categorias","*");
@@ -82,9 +81,9 @@
                 $len = count($occacion);
                 for($i=0; $i < $len; $i++) {
                     if($data[0]["id"] == $occacion[$i]['id']){
-                        echo '<option value="'.$occacion[$i]['id'].'" selected>'.$occacion[$i]['festividad'].'</option>';
+                        echo '<option value="'.$occacion[$i]['id'].'" selected>'.$occacion[$i]['festividades'].'</option>';
                     }else{
-                        echo '<option value="'.$occacion[$i]['id'].'">'.$occacion[$i]['festividad'].'</option>';
+                        echo '<option value="'.$occacion[$i]['id'].'">'.$occacion[$i]['festividades'].'</option>';
                     }
                     
                 }

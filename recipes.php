@@ -6,7 +6,9 @@
     // Reference: https://medoo.in/api/select
     // Note: don't delete the [>] 
         $data = $database->select("Recetas",[
-            "[><]Categorias"=>["id" => "id"]
+            "[><]Categorias"=>["id" => "id"],
+            "[><]dificultad"=>["id" => "id"],
+            "[><]festividades"=>["id" => "id"]
         ],[
             "Recetas.id",
             "Recetas.nombre",
@@ -17,7 +19,9 @@
             "Recetas.porciones",
             "Recetas.dificultad_id",
             "Recetas.ingredientes",
-            "Categorias.categoria"
+            "Categorias.categoria",
+            "Recetas.festividades_id",
+            "Recetas.categorias_id"
         ]);
         
     
@@ -70,7 +74,9 @@
             <td>Tiempo</td>
             <td>Likes</td>
             <td>Porciones</td>
-            <td>Opciones</td> 
+            <td>Porciones</td>
+            <td>Festividades</td>
+            <td>Categorias</td> 
         </tr>
         </thead>
         <?php
@@ -87,6 +93,8 @@
                 echo "<td>".$data[$i]["tiempo"]."</td>";
                 echo "<td>".$data[$i]["likes"]."</td>";
                 echo "<td>".$data[$i]["porciones"]."</td>";
+                echo "<td>".$data[$i]["festividades_id"]."</td>";
+                echo "<td>".$data[$i]["categorias_id"]."</td>";
                 echo "<td><a href='edit.php?id=".$data[$i]["id"]."'>Edit</a> <a href='delete.php?id=".$data[$i]["id"]."'>Delete</a></td>";
                 echo "</tr>";
             }

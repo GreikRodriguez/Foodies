@@ -1,13 +1,18 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+require 'DB.php';
+/* if ($_SERVER['REQUEST_METHOD'] == "POST") {
   include "registros/_registro.php";
   $_POST["picture"] = $_FILES["imagen"];
   insertRecipe($_POST);
-}
+}  */
 
-$complexity = ["Fácil", "Medio", "Avanzado"];
+/* $complexity = ["Fácil", "Medio", "Avanzado"];
 $categoties = ["Desayuno", "Entradas", "Almuerzo", "Sopas", "Postres", "Bebidas"];
-$occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Día del niño", "Navidad", "Semana Santa", "Verano"];
+$occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Día del niño", "Navidad", "Semana Santa", "Verano"]; */
+
+$complexity = $database->select("dificultad","*");
+    $categories = $database->select("Categorias","*");
+    $occasions = $database->select("festividades","*");
 ?>
 
 
@@ -40,7 +45,7 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
 <body>
 
   <?php include "header.php" ?>
-
+<!-- Registro -->
   <section>
     <div class="container-fluid ps-5 pe-5 g-1 color-green">
       <div class="row">
@@ -50,56 +55,81 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
       </div>
       <div>
         <div>
-          <form action="registro.php" enctype="multipart/form-data" method="POST" class="row">
+          <form action="response.php" enctype="multipart/form-data" method="POST" class="row">
             <div class="col-12 col-md">
 
               <div class="mb-3 ps-5 pe-5">
                 <label for="nombre" class="form-label register-text">Nombre de la Receta:</label>
-                <input type="text" id="nombre" name="nombre" class="form-control me-2 shorter-space" placeholder="Nombre Receta...">
+                <input type="text" id="nombre" name="nombre" class="form-control me-2 shorter-space shadow-lg" placeholder="Nombre Receta...">
               </div>
+
               <div class="register-line">
+
                 <div class="mb-3 ps-5 pe-5">
                   <label for="complejidad" class="form-label">Complejidad</label>
                   <select name="complejidad" id="complejidad">
-                    <?php foreach ($complexity as $index => $value) : ?>
-                      <option value="<?= $index + 1 ?>"><?= $value ?></option>
-                    <?php endforeach ?>
+                    <?php 
+                      $len = count($complexity);
+                      for($i=0; $i < $len; $i++) {
+                      echo '<option value="'.$complexity[$i]
+                      ['id'].'">'.$complexity[$i]
+                      ['dificultad'].'</option>';
+                      }
+                      ?>
                   </select>
                 </div>
+
                 <div class="mb-3 ps-5 pe-5">
                   <label for="categoria" class="form-label">Categoria</label>
                   <select name="categoria" id="categoria">
-                    <?php foreach ($categoties as $value) : ?>
-                      <option value="<?= $value ?>"><?= $value ?></option>
-                    <?php endforeach ?>
+                    <?php 
+                      $len = count($categories);
+                      for($i=0; $i < $len; $i++) {
+                      echo '<option value="'.$categories[$i]
+                      ['id'].'">'.$categories[$i]
+                      ['categoria'].'</option>';
+                      }
+                      ?>
                   </select>
                 </div>
+
                 <div class="mb-3 ps-5 pe-5">
                   <label for="ocacion" class="form-label">Ocasión</label>
                   <select name="ocacion" id="ocacion">
-                    <?php foreach ($occasions as $value) : ?>
-                      <option value="<?= $value ?>"><?= $value ?></option>
-                    <?php endforeach ?>
+                    <?php 
+                            $len = count($occasions);
+                            for($i=0; $i < $len; $i++) {
+                                echo '<option value="'.$occasions[$i]
+                                ['id'].'">'.$occasions[$i]
+                                ['festividades'].'</option>';
+                            }
+                        ?>
                   </select>
                 </div>
               </div>
               <div class="mb-3 ps-5 pe-5">
                 <label for="preparacion" class="form-label title-margin register-text">Preparación:</label>
-                <textarea class="form-control shorter-space" id="preparacion" name="preparacion" rows="3"></textarea>
+                <textarea class="form-control shorter-space shadow-lg" id="preparacion" name="preparacion" rows="3"></textarea>
               </div>
               <div class="mb-3 ps-5 pe-5">
                 <label for="ingredientes" class="form-label register-text">Ingredientes:</label>
-                <textarea class="form-control shorter-space" id="ingredientes" name="ingredientes" rows="3"></textarea>
+                <textarea class="form-control shorter-space shadow-lg" id="ingredientes" name="ingredientes" rows="3"></textarea>
+              </div>
+              <div class="mb-3 ps-5 pe-5">
+                <label for="porciones" class="form-label register-text">Porciones:</label>
+                <textarea class="form-control me-2 shorter-space shadow-lg" id="porciones" name="porciones"></textarea>
               </div>
               <div class="ps-5">
-                <button type="submit" class="btn btn-success"> Subir Receta </button>
+                <button type="submit" class="btn btn-success" value="Guardar receta"> Subir Receta </button>
               </div>
             </div>
+
             <div class="mb-3 col-md ">
-              <label for="imagen_url" class="form-label register-text">Imagen:</label>
-              <img id="preview" src="./imgs/<?php echo $data[0]["imagen_url"]; ?>" width="125" height="125" alt="Preview" class="me-5">
-              <input type="file" class="form-control image-register" id="imagen_url" name="imagen_url">
+              <label for="imagen_url" class="form-label register-text">Seleccionar Imagen:</label>
+              <img id="preview" src="./imgs/" width="125" height="125" alt="Preview" class="me-5">
+              <input type="file" class="form-control image-register" id="imagen_url" name="imagen_url" lang="es" onchange="readURL(this)">
             </div>
+
           </form>
         </div>
         <!-- <div class="mb-3 col-md ">
@@ -110,63 +140,6 @@ $occasions = ["Todas", "Cumpleaños", "Día de la madre", "Día del padre", "Dí
     </div>
   </section>
 
-
-
-  <!-- <div class="container-fluid me-5 mb-3 ps-5 pe-5 color-green">
-    <table class="table">
-      <h1 class="pt-5">Tabla de Recetas</h1>
-      <thead class="color-table">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">complejidad</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Ocasión</th>
-          <th scope="col">IMG</th>
-          <th scope="col">Opciones</th>
-
-        </tr>
-      </thead>
-      <form>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-
-            <td>Pan de soda con trigo sarraceno y pipas de calabaza</td>
-            <td>Intermedio</td>
-            <td>Postre</td>
-            <td>Navidad</td>
-            <td>img</td>
-            <td>@/@</td>
-
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-
-            <td>Tataki de ternera marinada con mostaza, especias y sal de carbón</td>
-            <td>Avanzado</td>
-            <td>Almuerzo</td>
-            <td>Dia de la Madre</td>
-            <td>img</td>
-            <td>@/@</td>
-
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-
-            <td>Omelet de huevo</td>
-            <td>Facil</td>
-            <td>Desayuno</td>
-            <td>Todas</td>
-            <td>img</td>
-            <td>@/@</td>
-
-            </td>
-          </tr>
-        </tbody>
-      </form>
-    </table>
-  </div> -->
   <?php include "footer.php" ?>
 </body>
 
