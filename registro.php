@@ -132,13 +132,13 @@ $complexity = $database->select("dificultad","*");
 
           </form>
         </div>
-        <!-- <div class="mb-3 col-md ">
-          <label for="imagen" class="form-label register-text">Imagen:</label>
-          <input type="file" class="form-control image-register" id="imagen" name="imagen">
-        </div> -->
       </div>
     </div>
   </section>
+
+  <div class="ps-5 ps-5 pe-5 row col-12 h4 pb-2 mb-4">
+      <a href="/recipes.php""><button class="btn btn-danger title-margin ps-5 pe-5"> Tabla </button></a>
+  </div>
 
   <?php include "footer.php" ?>
 </body>
