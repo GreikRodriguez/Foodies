@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    
     <div class="container-fluid g-0">
         <!-- <div class="col-3 float-start recipes-sidebar">
             <img class="img-fluid mt-5 mb-3" src="./images/logo-food-york.png" alt="Food York"> -->
@@ -150,4 +151,5 @@
         
     </script>
 </body>
+
 </html>
