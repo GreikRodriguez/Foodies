@@ -2,10 +2,8 @@
     require 'DB.php';
 
     if($_GET){
-
+    
         $results = $database->select("Recetas",[
-            "[><]Categorias"=>["id" => "id"]
-        ],[
             "Recetas.id",
             "Recetas.nombre",
             "Recetas.tiempo",
@@ -18,6 +16,8 @@
         ],[
             "Recetas.nombre[~]" => $_GET["keyword"]
         ]);
+        $id = $results[0]["id"];
+       
         
     }
 
@@ -113,6 +113,7 @@
              <div class="row row-cols-1 row-cols-md-5 g-4 ps-5 pe-5pr card-size">
                 <?php 
                     foreach ($results as $recipe){
+              
                         echo "<div class='col-md'><div class='card'> 
                         
                         <a href=/receta.php?id='" . $recipe["id"] . "'><img src='./imgs/".$recipe["imagen_url"]."' class='icon-size card-img-top''></a>
@@ -122,7 +123,7 @@
                         <img class='icon-size card-img-top' src='/foodiesv2/icons/like.png' alt='like'>
                         <h4 class='color-w text-likes'>" . $recipe["likes"] . "</h4>
                         <div class='btn-type '>
-                        <button type='button' class='btn btn-danger fw-bold'></button>
+                        <button type='button' class='btn btn-danger fw-bold'>"."</button>
                         </div>
                         </div>
                         </div>

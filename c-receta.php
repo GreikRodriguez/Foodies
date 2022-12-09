@@ -6,7 +6,7 @@
     <div class="row g-1 ps-5 pe-5 ">
         <div class="col-md">
             <div class="card card-size">
-                <img src="<?php echo $info[0]["imagen_url"] ?>" style="width: 100%;height: 50vh;object-fit: cover;object-position: 5% 26%;" class="card-img-top" alt="salmon">
+                <img src="<?php echo $info[0]["imagen_url"] ?>" style="width: 100%;height: 50vh;object-fit: cover;object-position: 5% 26%;" class="card-img-top" alt="receta">
                 <div class="card-body color-card">
                     <h5 class="card-title color-w align-text"><?php echo $info[0]["nombre"] ?></h5>
                     <h4 class="card-title color-w">10 min</h4>
