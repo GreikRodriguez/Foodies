@@ -113,7 +113,7 @@ $complexity = $database->select("dificultad","*");
               </div>
               <div class="mb-3 ps-5 pe-5">
                 <label for="ingredientes" class="form-label register-text">Ingredientes:</label>
-                <textarea class="form-control shorter-space shadow-lg" id="ingredientes" name="ingredientes" rows="3"></textarea>
+                <textarea class="form-control shorter-space shadow-lg" id="ingredientes" name="ingredientes" rows="3" placeholder="Ejemplo: arroz, agua, aceite..."></textarea>
               </div>
               <div class="mb-3 ps-5 pe-5">
                 <label for="porciones" class="form-label register-text">Porciones:</label>
